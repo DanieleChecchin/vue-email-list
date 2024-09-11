@@ -5,22 +5,28 @@ createApp({
         return {
             email: '',
             booleanApiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail',
+            emailArray: [],
         }
     },
     methods: {
         getRandomEmail() {
-            axios.get(this.booleanApiUrl)
-                .then((response) => { //Il parametro può chiamarsi in qualsiasi modo
-                    this.email = response.data.response;
-                });
+            for (let i = 0; i < 10; i++) {
+                axios.get(this.booleanApiUrl)
+                    .then((response) => { //Il parametro può chiamarsi in qualsiasi modo
+                        console.log(response);
+                        this.email = response.data.response;
+                        console.log(this.email);
+                        this.emailArray.push(this.email);
+                        console.log(this.emailArray)
+                    }
+                    );
+            }
         }
     },
     mounted() {
         this.getRandomEmail();
     }
 }).mount('#app')
-
-
 
 
 

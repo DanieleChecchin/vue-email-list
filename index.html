@@ -17,16 +17,9 @@
     <!--Vue-->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <div id="app">
-        <ul class="fs-2">Vue Email List
-            <li> {{ email }} </li>
+        <ul class="fs-2 fw-bold text-center">Vue Email List
+            <li v-for="email in emailArray" class="fs-4 fw-normal text-start my-2"> {{ email }} </li>
         </ul>
-
-
-
-
-
-
-
     </div>
     <!--AXIOS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
